@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load django_markdown %}
+
+{% block blog_entries %}
+  <div class="post">
+    <h2>Tagged under `{{ object.slug }}`</h2>
+    <ul>
+      {% for entry in object.entry_set.all %}
+        <li><a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

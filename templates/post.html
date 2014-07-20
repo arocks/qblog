@@ -6,7 +6,9 @@
     <h2><a href="{% url "entry_detail" slug=object.slug %}">{{ object.title }}</a></h2>
     <p class="meta">
       {{ object.created }} |
-      Tagged under {{  object.tags.all|join:", " }}
+      {% for tag in object.tags.all %}
+        <a href="{% url "tag_detail" tag=tag.slug %}">{{ tag.slug }}</a>{% if not forloop.last %},{% endif %}
+      {% endfor %}
     </p>
     {{ object.body|markdown }}
   </div>

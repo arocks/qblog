@@ -11,3 +11,9 @@ class BlogIndex(generic.ListView):
 class BlogDetail(generic.DetailView):
     model = models.Entry
     template_name = "post.html"
+
+
+class TagDetail(generic.DetailView):
+    model = models.Tag
+    template_name = "tag.html"
+    slug_url_kwarg = "tag"

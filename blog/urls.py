@@ -5,5 +5,6 @@ urlpatterns = patterns(
     '',
     url(r'^feed/$', feed.LatestPosts(), name="feed"),
     url(r'^$', views.BlogIndex.as_view(), name="index"),
+    url(r'^tags/(?P<tag>\S+)$', views.TagDetail.as_view(), name="tag_detail"),
     url(r'^(?P<slug>\S+)$', views.BlogDetail.as_view(), name="entry_detail"),
 )
